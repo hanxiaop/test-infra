@@ -111,11 +111,11 @@ func main() {
 						// will be overwritten by Automator the next time the
 						// image for the new branch is updated.
 						newImage := fmt.Sprintf("%s:%s-%s", match[1], branch, match[3])
-						if err := exec.Command("gcloud", "container", "images", "add-tag", match[0], newImage).Run(); err != nil {
-							log.Fatalf("Unable to add image tag %q: %v", newImage, err)
-						} else {
-							jobs.Image = newImage
-						}
+						//if err := exec.Command("gcloud", "container", "images", "add-tag", match[0], newImage).Run(); err != nil {
+						//	log.Fatalf("Unable to add image tag %q: %v", newImage, err)
+						//} else {
+						jobs.Image = newImage
+						//}
 					}
 					jobs.Branches = []string{branch}
 					jobs.SupportReleaseBranching = false
